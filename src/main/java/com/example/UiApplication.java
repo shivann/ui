@@ -47,7 +47,9 @@ public class UiApplication {
                     .and()
                     .authorizeRequests()
                     .antMatchers("/index.html", "/home.html", "/login.html", "/").permitAll()
-                    .anyRequest().authenticated();
+                    .anyRequest().authenticated()
+                    .and()
+                    .addFilter(new CsrfHeaderFilter());
         }
     }
 
